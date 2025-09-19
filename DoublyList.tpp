@@ -5,7 +5,6 @@ DoublyList<T>::DoublyList()
 : header(new Node), trailer(new Node) {
     header->next  = trailer;
     trailer->prev = header;
-    trailer->next = nullptr;
     this->length = 0;
 }
 
@@ -112,14 +111,11 @@ void DoublyList<T>::remove(int position) {
 
 template <typename T>
 bool DoublyList<T>::search(const T& elem) const {
-    // TO DO: Implement code to search for element
-    Node* temp = header;
-    for (int i = 0; i < this->length; i++)
-    {
-        if (temp->value == elem) return true;
-        temp = temp->next;
+    Node* curr = header->next;
+    while (curr != trailer) {
+        if (curr->value == elem) return true;
+        curr = curr->next;
     }
-    
     return false;
 }
 
