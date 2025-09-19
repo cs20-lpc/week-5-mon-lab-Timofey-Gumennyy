@@ -4,7 +4,6 @@ using namespace std;
 
 int main()
 {
-
     DoublyList<int> dlist;
     dlist.append(4);
     dlist.append(30);
